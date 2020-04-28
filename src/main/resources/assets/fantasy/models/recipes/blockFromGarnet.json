@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "AAA",
+        "AAA",
+        "AAA"
+    ],
+    
+    "key":
+    {
+        "A":
+        {
+            "type": "forge:ore_dict",
+            "ore": "gemRedGarnet"
+        }
+    },
+    
+    "result":
+    {
+        "item": "fantasy:garnet_block",
+        "count": 1
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "A",
+        "R"
+    ],
+    "key": {
+        "R": {
+            "item": "fantasy:gold_ring",
+            "data": 0
+        },
+        "A": {
+            "type": "forge:ore_dict",
+            "ore": "gemOrangeTopaz"
+        }
+    },
+    "result": {
+        "item": "fantasy:gold_orange_topaz_ring",
+        "count": 1,
+        "data": 0
+    }
+}

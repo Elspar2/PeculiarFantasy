@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shapeless",
+ 
+    "ingredients":
+    [
+ 
+    {
+      "item": "fantasy:mithril_amulet",
+      "data": 0
+    },
+ 
+    {
+      "type": "forge:ore_dict",
+      "ore": "blockObsidian"
+    }
+   
+    ],
+ 
+    "result":
+    {
+        "item": "fantasy:mithril_obsidian_amulet",
+        "count": 1,
+        "data": 0
+    }
+}

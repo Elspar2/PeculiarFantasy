@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " gg",
+        " gg",
+        "b  "
+    ],
+    "key": {
+        "g": {
+            "type": "forge:ore_dict",
+            "ore": "ingotMithril"
+        },
+        "b": {
+            "type": "forge:ore_dict",
+            "ore": "blockMithril"
+        }
+    },
+    "result": {
+        "item": "fantasy:mithril_amulet",
+        "count": 1,
+        "data": 0
+    }
+}

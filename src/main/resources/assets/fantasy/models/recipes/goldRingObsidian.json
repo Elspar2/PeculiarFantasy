@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "A",
+        "R"
+    ],
+    "key": {
+        "R": {
+            "item": "fantasy:gold_ring",
+            "data": 0
+        },
+        "A": {
+            "type": "forge:ore_dict",
+            "ore": "blockObsidian"
+        }
+    },
+    "result": {
+        "item": "fantasy:gold_obsidian_ring",
+        "count": 1,
+        "data": 0
+    }
+}

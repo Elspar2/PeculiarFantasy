@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "AAA",
+        "AAA",
+        "AAA"
+    ],
+    
+    "key":
+    {
+        "A":
+        {
+            "type": "forge:ore_dict",
+            "ore": "gemAquamarine"
+        }
+    },
+    
+    "result":
+    {
+        "item": "fantasy:aquamarine_block",
+        "count": 1
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "A",
+        "R"
+    ],
+    "key": {
+        "R": {
+            "item": "fantasy:gold_ring",
+            "data": 0
+        },
+        "A": {
+            "type": "forge:ore_dict",
+            "ore": "gemRuby"
+        }
+    },
+    "result": {
+        "item": "fantasy:gold_ruby_ring",
+        "count": 1,
+        "data": 0
+    }
+}
