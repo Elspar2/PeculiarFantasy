@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shapeless",
+ 
+    "ingredients":
+    [
+ 
+    {
+      "item": "fantasy:gold_amulet",
+      "data": 0
+    },
+ 
+    {
+      "type": "forge:ore_dict",
+      "ore": "gemSapphire"
+    }
+   
+    ],
+ 
+    "result":
+    {
+        "item": "fantasy:gold_sapphire_amulet",
+        "count": 1,
+        "data": 0
+    }
+}

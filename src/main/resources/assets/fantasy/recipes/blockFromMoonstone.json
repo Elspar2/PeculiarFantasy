@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "AAA",
+        "AAA",
+        "AAA"
+    ],
+    
+    "key":
+    {
+        "A":
+        {
+            "type": "forge:ore_dict",
+            "ore": "gemMoonstone"
+        }
+    },
+    
+    "result":
+    {
+        "item": "fantasy:moonstone_block",
+        "count": 1
+    }
+}
