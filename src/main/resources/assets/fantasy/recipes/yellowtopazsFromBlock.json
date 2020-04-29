@@ -1,0 +1,19 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+
+    "ingredients": 
+    [
+
+    {
+      "type": "forge:ore_dict",
+      "ore": "blockYellowTopaz"
+    }
+    
+    ],
+
+    "result": 
+    {
+        "item": "fantasy:yellow_topaz",
+        "count": 9
+    }
+}

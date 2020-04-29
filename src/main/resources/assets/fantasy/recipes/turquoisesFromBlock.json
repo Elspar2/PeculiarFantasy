@@ -1,0 +1,19 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+
+    "ingredients": 
+    [
+
+    {
+      "type": "forge:ore_dict",
+      "ore": "blockTurquoise"
+    }
+    
+    ],
+
+    "result": 
+    {
+        "item": "fantasy:turquoise",
+        "count": 9
+    }
+}

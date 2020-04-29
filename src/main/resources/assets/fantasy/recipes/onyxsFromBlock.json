@@ -1,0 +1,19 @@
+{ 
+    "type": "minecraft:crafting_shapeless",
+
+    "ingredients": 
+    [
+
+    {
+      "type": "forge:ore_dict",
+      "ore": "blockOnyx"
+    }
+    
+    ],
+
+    "result": 
+    {
+        "item": "fantasy:onyx",
+        "count": 9
+    }
+}

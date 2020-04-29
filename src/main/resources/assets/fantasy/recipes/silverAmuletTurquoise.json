@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shapeless",
+ 
+    "ingredients":
+    [
+ 
+    {
+      "item": "fantasy:silver_amulet",
+      "data": 0
+    },
+ 
+    {
+      "type": "forge:ore_dict",
+      "ore": "gemTurquoise"
+    }
+   
+    ],
+ 
+    "result":
+    {
+        "item": "fantasy:silver_turquoise_amulet",
+        "count": 1,
+        "data": 0
+    }
+}

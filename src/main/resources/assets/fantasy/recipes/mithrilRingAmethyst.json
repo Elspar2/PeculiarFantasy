@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "A",
+        "R"
+    ],
+    "key": {
+        "R": {
+            "item": "fantasy:mithril_ring",
+            "data": 0
+        },
+        "A": {
+            "type": "forge:ore_dict",
+            "ore": "gemAmethyst"
+        }
+    },
+    "result": {
+        "item": "fantasy:mithril_amethyst_ring",
+        "count": 1,
+        "data": 0
+    }
+}
