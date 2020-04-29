@@ -3,6 +3,7 @@ package com.elspar2.fantasymod.items.jewelry;
 import com.elspar2.fantasymod.Main;
 import com.elspar2.fantasymod.init.ModItems;
 import com.elspar2.fantasymod.util.IHasModel;
+import com.elspar2.fantasymod.util.handlers.ConfigHandler;
 import com.tmtravlr.potioncore.potion.*;
 
 import baubles.api.BaubleType;
@@ -17,6 +18,7 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
@@ -66,136 +68,334 @@ public class Amulet extends Item implements IBauble,IHasModel {
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
 	}
 
+	public PotionEffect GetPotionFromString(String effect, int strength) {
+		switch (effect) {
+			case "RESISTANCE":
+				return new PotionEffect(MobEffects.RESISTANCE, 80,strength,true,true);
+			case "FIRE_RESISTANCE":
+				return new PotionEffect(MobEffects.FIRE_RESISTANCE, 80,strength,true,true);
+			case "INSTANT_HEALTH":
+				return new PotionEffect(MobEffects.INSTANT_HEALTH, 80,strength,true,true);
+			case "JUMP_BOOST":
+				return new PotionEffect(MobEffects.JUMP_BOOST, 80,strength,true,true);
+			case "NIGHT_VISION":
+				return new PotionEffect(MobEffects.NIGHT_VISION, 80,strength,true,true);
+			case "INVISIBILITY":
+				return new PotionEffect(MobEffects.INVISIBILITY, 80,strength,true,true);
+			case "LEVITATION":
+				return new PotionEffect(MobEffects.LEVITATION, 80,strength,true,true);
+			case "STRENGTH":
+				return new PotionEffect(MobEffects.STRENGTH, 80,strength,true,true);
+			case "SATURATION":
+				return new PotionEffect(MobEffects.SATURATION, 80,strength,true,true);
+			case "SPEED":
+				return new PotionEffect(MobEffects.SPEED, 80,strength,true,true);
+			case "HASTE":
+				return new PotionEffect(MobEffects.HASTE, 80,strength,true,true);
+			case "WATER_BREATHING":
+				return new PotionEffect(MobEffects.WATER_BREATHING, 80,strength,true,true);
+				
+			case "PotionRepair":
+				return new PotionEffect(PotionRepair.INSTANCE, 80,strength,true,true);
+			case "PotionSlowfall":
+				return new PotionEffect(PotionSlowfall.INSTANCE, 80,strength,true,true);
+			case "PotionDrown":
+				return new PotionEffect(PotionDrown.INSTANCE, 80,strength,true,true);
+			case "PotionCure":
+				return new PotionEffect(PotionCure.INSTANCE, 80,strength,true,true);
+			case "PotionAntidote":
+				return new PotionEffect(PotionAntidote.INSTANCE, 80,strength,true,true);
+			case "PotionSolidCore":
+				return new PotionEffect(PotionSolidCore.INSTANCE, 80,strength,true,true);
+			case "PotionDiamondSkin":
+				return new PotionEffect(PotionDiamondSkin.INSTANCE, 80,strength,true,true);
+			case "PotionArchery":
+				return new PotionEffect(PotionArchery.INSTANCE, 80,strength,true,true);
+			case "PotionClimb":
+				return new PotionEffect(PotionClimb.INSTANCE, 80,strength,true,true);
+			case "PotionMagicFocus":
+				return new PotionEffect(PotionMagicFocus.INSTANCE, 80,strength,true,true);
+			case "PotionMagicShield":
+				return new PotionEffect(PotionMagicShield.INSTANCE, 80,strength,true,true);
+			case "PotionBless":
+				return new PotionEffect(PotionBless.INSTANCE, 80,strength,true,true);
+			case "PotionPurity":
+				return new PotionEffect(PotionPurity.INSTANCE, 80,strength,true,true);
+			case "PotionVulnerable":
+				return new PotionEffect(PotionVulnerable.INSTANCE, 80,strength,true,true);
+			case "PotionKlutz":
+				return new PotionEffect(PotionKlutz.INSTANCE, 80,strength,true,true);
+			case "PotionReach":
+				return new PotionEffect(PotionReach.INSTANCE, 80,strength,true,true);
+			case "PotionStepup":
+				return new PotionEffect(PotionStepup.INSTANCE, 80,strength,true,true);
+			case "PotionIronSkin":
+				return new PotionEffect(PotionIronSkin.INSTANCE, 80,strength,true,true);
+			case "PotionMagicInhibition":
+				return new PotionEffect(PotionMagicInhibition.INSTANCE, 80,strength,true,true);
+			case "PotionCurse":
+				return new PotionEffect(PotionCurse.INSTANCE, 80,strength,true,true);
+			case "PotionChance":
+				return new PotionEffect(PotionChance.INSTANCE, 80,strength,true,true);
+		}
+		return null;
+	}
+	
+	public Potion GetRemovablePotionFromString(String effect) {
+		switch (effect) {
+			case "RESISTANCE":
+				return MobEffects.RESISTANCE;
+			case "FIRE_RESISTANCE":
+				return MobEffects.FIRE_RESISTANCE;
+			case "INSTANT_HEALTH":
+				return MobEffects.INSTANT_HEALTH;
+			case "JUMP_BOOST":
+				return MobEffects.JUMP_BOOST;
+			case "NIGHT_VISION":
+				return MobEffects.NIGHT_VISION;
+			case "INVISIBILITY":
+				return MobEffects.INVISIBILITY;
+			case "LEVITATION":
+				return MobEffects.LEVITATION;
+			case "STRENGTH":
+				return MobEffects.STRENGTH;
+			case "SATURATION":
+				return MobEffects.SATURATION;
+			case "SPEED":
+				return MobEffects.SPEED;
+			case "HASTE":
+				return MobEffects.HASTE;
+			case "WATER_BREATHING":
+				return MobEffects.WATER_BREATHING;
+				
+			case "PotionRepair":
+				return PotionRepair.INSTANCE;
+			case "PotionSlowfall":
+				return PotionSlowfall.INSTANCE;
+			case "PotionDrown":
+				return PotionDrown.INSTANCE;
+			case "PotionCure":
+				return PotionCure.INSTANCE;
+			case "PotionAntidote":
+				return PotionAntidote.INSTANCE;
+			case "PotionSolidCore":
+				return PotionSolidCore.INSTANCE;
+			case "PotionDiamondSkin":
+				return PotionDiamondSkin.INSTANCE;
+			case "PotionArchery":
+				return PotionArchery.INSTANCE;
+			case "PotionClimb":
+				return PotionClimb.INSTANCE;
+			case "PotionMagicFocus":
+				return PotionMagicFocus.INSTANCE;
+			case "PotionMagicShield":
+				return PotionMagicShield.INSTANCE;
+			case "PotionBless":
+				return PotionBless.INSTANCE;
+			case "PotionPurity":
+				return PotionPurity.INSTANCE;
+			case "PotionVulnerable":
+				return PotionVulnerable.INSTANCE;
+			case "PotionKlutz":
+				return PotionKlutz.INSTANCE;
+			case "PotionReach":
+				return PotionReach.INSTANCE;
+			case "PotionStepup":
+				return PotionStepup.INSTANCE;
+			case "PotionIronSkin":
+				return PotionIronSkin.INSTANCE;
+			case "PotionMagicInhibition":
+				return PotionMagicInhibition.INSTANCE;
+			case "PotionCurse":
+				return PotionCurse.INSTANCE;
+			case "PotionChance":
+				return PotionChance.INSTANCE;
+		}
+		return null;
+	}
+	
 	@Override
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
 		if (itemstack.getItemDamage()==0 && player.ticksExisted%39==0) {
-			if (gemName == "amber") {
-				player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 80,1,true,true));
+			switch (gemName) {
+				case "amber":
+					if (GetPotionFromString(ConfigHandler.AMBER_EFFECT, ConfigHandler.AMBER_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.AMBER_EFFECT, ConfigHandler.AMBER_STRENGTH)); 
+					}
+					break;
+				case "amethyst":
+					if (GetPotionFromString(ConfigHandler.AMETHYST_EFFECT, ConfigHandler.AMETHYST_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.AMETHYST_EFFECT, ConfigHandler.AMETHYST_STRENGTH));
+					}
+					break;
+				case "angelite":
+					if (GetPotionFromString(ConfigHandler.ANGELITE_EFFECT, ConfigHandler.ANGELITE_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.ANGELITE_EFFECT, ConfigHandler.ANGELITE_STRENGTH));
+					}
+					break;
+				case "aquamarine":
+					if (GetPotionFromString(ConfigHandler.AQUAMARINE_EFFECT, ConfigHandler.AQUAMARINE_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.AQUAMARINE_EFFECT, ConfigHandler.AQUAMARINE_STRENGTH));
+					}
+					break;
+				case "blackOpal":
+					if (GetPotionFromString(ConfigHandler.BLACK_OPAL_EFFECT, ConfigHandler.BLACK_OPAL_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.BLACK_OPAL_EFFECT, ConfigHandler.BLACK_OPAL_STRENGTH));
+					}
+					break;
+				case "coral":
+					if (GetPotionFromString(ConfigHandler.CORAL_EFFECT, ConfigHandler.CORAL_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.CORAL_EFFECT, ConfigHandler.CORAL_STRENGTH));
+					}
+					break;
+				case "diamond":
+					if (GetPotionFromString(ConfigHandler.DIAMOND_EFFECT, ConfigHandler.DIAMOND_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.DIAMOND_EFFECT, ConfigHandler.DIAMOND_STRENGTH));
+					}
+					break;
+				case "emerald":
+					if (GetPotionFromString(ConfigHandler.EMERALD_EFFECT, ConfigHandler.EMERALD_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.EMERALD_EFFECT, ConfigHandler.EMERALD_STRENGTH));
+					}
+					break;
+				case "garnet":
+					if (GetPotionFromString(ConfigHandler.GARNET_EFFECT, ConfigHandler.GARNET_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.GARNET_EFFECT, ConfigHandler.GARNET_STRENGTH));
+					}
+					break;
+				case "jade":
+					if (GetPotionFromString(ConfigHandler.JADE_EFFECT, ConfigHandler.JADE_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.JADE_EFFECT, ConfigHandler.JADE_STRENGTH));
+					}
+					break;
+				case "lapis":
+					if (GetPotionFromString(ConfigHandler.LAPIS_EFFECT, ConfigHandler.LAPIS_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.LAPIS_EFFECT, ConfigHandler.LAPIS_STRENGTH));
+					}
+					break;
+				case "moonstone":
+					if (GetPotionFromString(ConfigHandler.MOONSTONE_EFFECT, ConfigHandler.MOONSTONE_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.MOONSTONE_EFFECT, ConfigHandler.MOONSTONE_STRENGTH));
+					}
+					break;
+				case "obsidian":
+					if (GetPotionFromString(ConfigHandler.OBSIDIAN_EFFECT, ConfigHandler.OBSIDIAN_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.OBSIDIAN_EFFECT, ConfigHandler.OBSIDIAN_STRENGTH));
+					}
+					break;
+				case "onyx":
+					if (GetPotionFromString(ConfigHandler.ONYX_EFFECT, ConfigHandler.ONYX_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.ONYX_EFFECT, ConfigHandler.ONYX_STRENGTH));
+					}
+					break;
+				case "opal":
+					if (GetPotionFromString(ConfigHandler.OPAL_EFFECT, ConfigHandler.OPAL_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.OPAL_EFFECT, ConfigHandler.OPAL_STRENGTH));
+					}
+					break;
+				case "orangeTopaz":
+					if (GetPotionFromString(ConfigHandler.ORANGE_TOPAZ_EFFECT, ConfigHandler.ORANGE_TOPAZ_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.ORANGE_TOPAZ_EFFECT, ConfigHandler.ORANGE_TOPAZ_STRENGTH));
+					}
+					break;
+				case "painite":
+					if (GetPotionFromString(ConfigHandler.PAINITE_EFFECT, ConfigHandler.PAINITE_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.PAINITE_EFFECT, ConfigHandler.PAINITE_STRENGTH));
+					}
+					break;
+				case "peridot":
+					if (GetPotionFromString(ConfigHandler.PERIDOT_EFFECT, ConfigHandler.PERIDOT_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.PERIDOT_EFFECT, ConfigHandler.PERIDOT_STRENGTH));
+					}
+					break;
+				case "ruby":
+					if (GetPotionFromString(ConfigHandler.RUBY_EFFECT, ConfigHandler.RUBY_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.RUBY_EFFECT, ConfigHandler.RUBY_STRENGTH));
+					}
+					break;
+				case "sapphire":
+					if (GetPotionFromString(ConfigHandler.SAPPHIRE_EFFECT, ConfigHandler.SAPPHIRE_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.SAPPHIRE_EFFECT, ConfigHandler.SAPPHIRE_STRENGTH));
+					}
+					break;
+				case "taaffeite":
+					if (GetPotionFromString(ConfigHandler.TAAFFEITE_EFFECT, ConfigHandler.TAAFFEITE_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.TAAFFEITE_EFFECT, ConfigHandler.TAAFFEITE_STRENGTH));
+					}
+					break;
+				case "tanzanite":
+					if (GetPotionFromString(ConfigHandler.TANZANITE_EFFECT, ConfigHandler.TANZANITE_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.TANZANITE_EFFECT, ConfigHandler.TANZANITE_STRENGTH));
+					}
+					break;
+				case "turquoise":
+					if (GetPotionFromString(ConfigHandler.TURQUOISE_EFFECT, ConfigHandler.TURQUOISE_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.TURQUOISE_EFFECT, ConfigHandler.TURQUOISE_STRENGTH));
+					}
+					break;
+				case "yellowTopaz":
+					if (GetPotionFromString(ConfigHandler.YELLOW_TOPAZ_EFFECT, ConfigHandler.YELLOW_TOPAZ_STRENGTH) != null) {
+						player.addPotionEffect(GetPotionFromString(ConfigHandler.YELLOW_TOPAZ_EFFECT, ConfigHandler.YELLOW_TOPAZ_STRENGTH));
+					}
+					break;
 			}
-			if (gemName == "amethyst") {
-				player.addPotionEffect(new PotionEffect(PotionRepair.INSTANCE, 80,1,true,true));
-			}
-			if (gemName == "angelite") {
-				player.addPotionEffect(new PotionEffect(PotionSlowfall.INSTANCE, 80,1,true,true));
-			}
-			if (gemName == "aquamarine") {
-				player.addPotionEffect(new PotionEffect(PotionDrown.INSTANCE, 80,0,true,true));
-			}
-			if (gemName == "blackOpal") {
-				player.addPotionEffect(new PotionEffect(PotionCure.INSTANCE, 80,1,true,true));
-			}
-			if (gemName == "coral") {
-				player.addPotionEffect(new PotionEffect(PotionAntidote.INSTANCE, 80,1,true,true));
-				player.addPotionEffect(new PotionEffect(PotionSolidCore.INSTANCE, 80,1,true,true));
-			}
-			if (gemName == "diamond") {
-				player.addPotionEffect(new PotionEffect(PotionDiamondSkin.INSTANCE, 80,2,true,true));
-			}
-			if (gemName == "emerald") {
-				player.addPotionEffect(new PotionEffect(PotionArchery.INSTANCE, 80,2,true,true));
-			}
-			if (gemName == "garnet") {
-				player.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 20,1,true,true));
-			}
-			if (gemName == "jade") {
-				player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 80,3,true,true));
-				player.addPotionEffect(new PotionEffect(PotionClimb.INSTANCE, 80,3,true,true));
-			}
-			if (gemName == "lapis") {
-				player.addPotionEffect(new PotionEffect(PotionMagicFocus.INSTANCE, 80,2,true,true));
-				player.addPotionEffect(new PotionEffect(PotionMagicShield.INSTANCE, 80,2,true,true));
-			}
-			if (gemName == "moonstone") {
-				player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 1800,0,true,true));
-			}
-			if (gemName == "obsidian") {
-				player.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 80,0,true,true));
-				player.addPotionEffect(new PotionEffect(PotionSolidCore.INSTANCE, 80,1,true,true));
-			}
-			if (gemName == "onyx") {
-				player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 80,1,true,true));
-			}
-			if (gemName == "opal") {
-				player.addPotionEffect(new PotionEffect(PotionBless.INSTANCE, 80,1,true,true));
-				player.addPotionEffect(new PotionEffect(PotionPurity.INSTANCE, 80,1,true,true));
-			}
-			if (gemName == "orangeTopaz") {
-				player.addPotionEffect(new PotionEffect(MobEffects.LEVITATION, 80,2,true,true));
-			}
-			if (gemName == "painite") {
-				player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 80,3,true,true));
-				player.addPotionEffect(new PotionEffect(PotionVulnerable.INSTANCE, 80,4,true,true));
-				player.addPotionEffect(new PotionEffect(PotionKlutz.INSTANCE, 80,4,true,true));
-			}
-			if (gemName == "peridot") {
-				player.addPotionEffect(new PotionEffect(MobEffects.SATURATION, 80,0,true,true));
-				player.addPotionEffect(new PotionEffect(PotionAntidote.INSTANCE, 80,1,true,true));
-			}
-			if (gemName == "ruby") {
-				player.addPotionEffect(new PotionEffect(PotionReach.INSTANCE, 80,3,true,true));
-			}
-			if (gemName == "sapphire") {
-				player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 80,2,true,true));
-				player.addPotionEffect(new PotionEffect(PotionStepup.INSTANCE, 80,3,true,true));
-			}
-			if (gemName == "taaffeite") {
-				player.addPotionEffect(new PotionEffect(MobEffects.SATURATION, 80,0,true,true));
-				player.addPotionEffect(new PotionEffect(PotionPurity.INSTANCE, 80,1,true,true));
-			}
-			if (gemName == "tanzanite") {
-				player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 80,2,true,true));
-			}
-			if (gemName == "turquoise") {
-				player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 80,0,true,true));
-			}
-			if (gemName == "yellowTopaz") {
-				player.addPotionEffect(new PotionEffect(PotionIronSkin.INSTANCE, 80,3,true,true));
-			}
-			//Material
-			if (materialName == "steel") {
-                if (gemName == "yellowTopaz") {
-                    player.addPotionEffect(new PotionEffect (PotionIronSkin.INSTANCE, 80, 4, true, true));
-                } else {
-                	player.addPotionEffect(new PotionEffect(PotionIronSkin.INSTANCE, 80,1,true,true));
-                }
-            }
-			if (materialName == "silver") {
-				player.addPotionEffect(new PotionEffect(PotionPurity.INSTANCE, 80,1,true,true));
-			}
-			if (materialName == "gold") {
-				player.addPotionEffect(new PotionEffect(PotionAntidote.INSTANCE, 80,1,true,true));
-			}
-			if (materialName == "quicksilver") {
-				player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 80,1,true,true));
-				player.addPotionEffect(new PotionEffect(MobEffects.HASTE, 80,1,true,true));
-			}
-			if (materialName == "mithril") {
-				player.addPotionEffect(new PotionEffect(PotionMagicFocus.INSTANCE, 80,1,true,true));
-				player.addPotionEffect(new PotionEffect(PotionMagicShield.INSTANCE, 80,1,true,true));
-				player.addPotionEffect(new PotionEffect(PotionSolidCore.INSTANCE, 80,1,true,true));
-			}
-			if (materialName == "cobalt") {
-				player.addPotionEffect(new PotionEffect(PotionSolidCore.INSTANCE, 80,1,true,true));
-				player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 80,1,true,true));
-			}
-			if (materialName == "admantium") {
-				player.addPotionEffect(new PotionEffect(PotionRepair.INSTANCE, 80,1,true,true));
-				player.addPotionEffect(new PotionEffect(PotionSolidCore.INSTANCE, 80,1,true,true));
-			}
-			if (materialName == "ebony") {
-				player.addPotionEffect(new PotionEffect(PotionMagicInhibition.INSTANCE, 80,1,true,true));
-				player.addPotionEffect(new PotionEffect(PotionMagicShield.INSTANCE, 80,1,true,true));
-				player.addPotionEffect(new PotionEffect(PotionSolidCore.INSTANCE, 80,1,true,true));
-			}
-			if (materialName == "divinium") {
-				player.addPotionEffect(new PotionEffect(PotionBless.INSTANCE, 80,1,true,true));
-			}
-			if (materialName == "malovenium") {
-				player.addPotionEffect(new PotionEffect(PotionCurse.INSTANCE, 80,1,true,true));
-			}
-			if (materialName == "chancium") {
-				player.addPotionEffect(new PotionEffect(PotionChance.INSTANCE, 80,1,true,true));
-			}
+		switch (materialName) {
+			case "steel":
+				if (GetPotionFromString(ConfigHandler.STEEL_EFFECT, ConfigHandler.STEEL_STRENGTH) != null) {
+					player.addPotionEffect(GetPotionFromString(ConfigHandler.STEEL_EFFECT, ConfigHandler.STEEL_STRENGTH));
+				}
+				break;
+			case "silver":
+				if (GetPotionFromString(ConfigHandler.SILVER_EFFECT, ConfigHandler.SILVER_STRENGTH) != null) {
+					player.addPotionEffect(GetPotionFromString(ConfigHandler.SILVER_EFFECT, ConfigHandler.SILVER_STRENGTH));
+				}
+				break;
+			case "gold":
+				if (GetPotionFromString(ConfigHandler.GOLD_EFFECT, ConfigHandler.GOLD_STRENGTH) != null) {
+					player.addPotionEffect(GetPotionFromString(ConfigHandler.GOLD_EFFECT, ConfigHandler.GOLD_STRENGTH));
+				}
+				break;
+			case "quicksilver":
+				if (GetPotionFromString(ConfigHandler.QUICKSILVER_EFFECT, ConfigHandler.QUICKSILVER_STRENGTH) != null) {
+					player.addPotionEffect(GetPotionFromString(ConfigHandler.QUICKSILVER_EFFECT, ConfigHandler.QUICKSILVER_STRENGTH));
+				}
+				break;
+			case "mithril":
+				if (GetPotionFromString(ConfigHandler.MITHRIL_EFFECT, ConfigHandler.MITHRIL_STRENGTH) != null) {
+					player.addPotionEffect(GetPotionFromString(ConfigHandler.MITHRIL_EFFECT, ConfigHandler.MITHRIL_STRENGTH));
+				}
+				break;
+			case "cobalt":
+				if (GetPotionFromString(ConfigHandler.COBALT_EFFECT, ConfigHandler.COBALT_STRENGTH) != null) {
+					player.addPotionEffect(GetPotionFromString(ConfigHandler.COBALT_EFFECT, ConfigHandler.COBALT_STRENGTH));
+				}
+				break;
+			case "admantium":
+				if (GetPotionFromString(ConfigHandler.ADMANTIUM_EFFECT, ConfigHandler.ADMANTIUM_STRENGTH) != null) {
+					player.addPotionEffect(GetPotionFromString(ConfigHandler.ADMANTIUM_EFFECT, ConfigHandler.ADMANTIUM_STRENGTH));
+				}
+				break;
+			case "ebony":
+				if (GetPotionFromString(ConfigHandler.EBONY_EFFECT, ConfigHandler.EBONY_STRENGTH) != null) {
+					player.addPotionEffect(GetPotionFromString(ConfigHandler.EBONY_EFFECT, ConfigHandler.EBONY_STRENGTH));
+				}
+				break;
+			case "divinium":
+				if (GetPotionFromString(ConfigHandler.DIVINIUM_EFFECT, ConfigHandler.DIVINIUM_STRENGTH) != null) {
+					player.addPotionEffect(GetPotionFromString(ConfigHandler.DIVINIUM_EFFECT, ConfigHandler.DIVINIUM_STRENGTH));
+				}
+				break;
+			case "malovenium":
+				if (GetPotionFromString(ConfigHandler.MALOVENIUM_EFFECT, ConfigHandler.MALOVENIUM_STRENGTH) != null) {
+					player.addPotionEffect(GetPotionFromString(ConfigHandler.MALOVENIUM_EFFECT, ConfigHandler.MALOVENIUM_STRENGTH));
+				}
+				break;
+			case "chancium":
+				if (GetPotionFromString(ConfigHandler.CHANCIUM_EFFECT, ConfigHandler.CHANCIUM_STRENGTH) != null) {
+					player.addPotionEffect(GetPotionFromString(ConfigHandler.CHANCIUM_EFFECT, ConfigHandler.CHANCIUM_STRENGTH));
+				}
+				break;
+		}
 			
 		}
 	}
@@ -224,128 +424,184 @@ public class Amulet extends Item implements IBauble,IHasModel {
 	@Override
 	public void onUnequipped(ItemStack itemstack, EntityLivingBase player) {
 		player.playSound(SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, .75F, 2f);
-		if (gemName == "amber") {
-			player.removePotionEffect(MobEffects.RESISTANCE);
-		}
-		if (gemName == "amethyst") {
-			player.removePotionEffect(PotionRepair.INSTANCE);
-		}
-		if (gemName == "angelite") {
-			player.removePotionEffect(PotionSlowfall.INSTANCE);
-		}
-		if (gemName == "aquamarine") {
-			player.removePotionEffect(PotionDrown.INSTANCE);
-		}
-		if (gemName == "blackOpal") {
-			player.removePotionEffect(PotionCure.INSTANCE);
-		}
-		if (gemName == "coral") {
-			player.removePotionEffect(PotionAntidote.INSTANCE);
-			player.removePotionEffect(PotionSolidCore.INSTANCE);
-		}
-		if (gemName == "diamond") {
-			player.removePotionEffect(PotionDiamondSkin.INSTANCE);
-		}
-		if (gemName == "emerald") {
-			player.removePotionEffect(PotionArchery.INSTANCE);
-		}
-		if (gemName == "garnet") {
-			player.removePotionEffect(MobEffects.INSTANT_HEALTH);
-		}
-		if (gemName == "jade") {
-			player.removePotionEffect(MobEffects.JUMP_BOOST);
-			player.removePotionEffect(PotionClimb.INSTANCE);
-		}
-		if (gemName == "lapis") {
-			player.removePotionEffect(PotionMagicFocus.INSTANCE);
-			player.removePotionEffect(PotionMagicShield.INSTANCE);
-		}
-		if (gemName == "moonstone") {
-			player.removePotionEffect(MobEffects.NIGHT_VISION);
-		}
-		if (gemName == "obsidian") {
-			player.removePotionEffect(MobEffects.FIRE_RESISTANCE);
-			player.removePotionEffect(PotionSolidCore.INSTANCE);
-		}
-		if (gemName == "onyx") {
-			player.removePotionEffect(MobEffects.INVISIBILITY);
-		}
-		if (gemName == "opal") {
-			player.removePotionEffect(PotionBless.INSTANCE);
-			player.removePotionEffect(PotionPurity.INSTANCE);
-		}
-		if (gemName == "orangeTopaz") {
-			player.removePotionEffect(MobEffects.LEVITATION);
-		}
-		if (gemName == "painite") {
-			player.removePotionEffect(PotionVulnerable.INSTANCE);
-			player.removePotionEffect(PotionKlutz.INSTANCE);
-			player.removePotionEffect(MobEffects.STRENGTH);
-		}
-		if (gemName == "peridot") {
-			player.removePotionEffect(MobEffects.SATURATION);
-			player.removePotionEffect(PotionAntidote.INSTANCE);
-		}
-		if (gemName == "ruby") {
-			player.removePotionEffect(PotionReach.INSTANCE);
-		}
-		if (gemName == "sapphire") {
-			player.removePotionEffect(MobEffects.SPEED);
-			player.removePotionEffect(PotionStepup.INSTANCE);
-		}
-		if (gemName == "taaffeite") {
-			player.removePotionEffect(MobEffects.SATURATION);
-			player.removePotionEffect(PotionPurity.INSTANCE);
-		}
-		if (gemName == "tanzanite") {
-			player.removePotionEffect(MobEffects.HASTE);
-		}
-		if (gemName == "turquoise") {
-			player.removePotionEffect(MobEffects.WATER_BREATHING);
-		}
-		if (gemName == "yellowTopaz") {
-			player.removePotionEffect(PotionIronSkin.INSTANCE);
-		}
-		//Material
-		if (materialName == "steel") {
-			player.removePotionEffect(PotionIronSkin.INSTANCE);
-		}
-		if (materialName == "silver") {
-			player.removePotionEffect(PotionPurity.INSTANCE);
-		}
-		if (materialName == "gold") {
-			player.removePotionEffect(PotionAntidote.INSTANCE);
-		}
-		if (materialName == "quicksilver") {
-			player.removePotionEffect(MobEffects.HASTE);
-			player.removePotionEffect(MobEffects.SPEED);
-		}
-		if (materialName == "mithril") {
-			player.removePotionEffect(PotionMagicFocus.INSTANCE);
-			player.removePotionEffect(PotionMagicShield.INSTANCE);
-			player.removePotionEffect(PotionSolidCore.INSTANCE);
-		}
-		if (materialName == "cobalt") {
-			player.removePotionEffect(PotionSolidCore.INSTANCE);
-			player.removePotionEffect(MobEffects.RESISTANCE);
-		}
-		if (materialName == "admantium") {
-			player.removePotionEffect(PotionSolidCore.INSTANCE);
-			player.removePotionEffect(PotionRepair.INSTANCE);
-		}
-		if (materialName == "ebony") {
-			player.removePotionEffect(PotionMagicInhibition.INSTANCE);
-			player.removePotionEffect(PotionMagicShield.INSTANCE);
-			player.removePotionEffect(PotionSolidCore.INSTANCE);
-		}
-		if (materialName == "divinium") {
-			player.removePotionEffect(PotionBless.INSTANCE);
-		}
-		if (materialName == "malovenium") {
-			player.removePotionEffect(PotionCurse.INSTANCE);
-		}
-		if (materialName == "chancium") {
-			player.removePotionEffect(PotionChance.INSTANCE);
+		switch (gemName) {
+			case "amber":
+				if (GetPotionFromString(ConfigHandler.AMBER_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.AMBER_EFFECT));
+				}
+				break;
+			case "amethyst":
+				if (GetPotionFromString(ConfigHandler.AMETHYST_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.AMETHYST_EFFECT));
+				}
+				break;
+			case "angelite":
+				if (GetPotionFromString(ConfigHandler.ANGELITE_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.ANGELITE_EFFECT));
+				}
+				break;
+			case "aquamarine":
+				if (GetPotionFromString(ConfigHandler.AQUAMARINE_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.AQUAMARINE_EFFECT));
+				}
+				break;
+			case "blackOpal":
+				if (GetPotionFromString(ConfigHandler.BLACK_OPAL_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.BLACK_OPAL_EFFECT));
+				}
+				break;
+			case "coral":
+				if (GetPotionFromString(ConfigHandler.CORAL_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.CORAL_EFFECT));
+				}
+				break;
+			case "diamond":
+				if (GetPotionFromString(ConfigHandler.DIAMOND_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.DIAMOND_EFFECT));
+				}
+				break;
+			case "emerald":
+				if (GetPotionFromString(ConfigHandler.EMERALD_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.EMERALD_EFFECT));
+				}
+				break;
+			case "garnet":
+				if (GetPotionFromString(ConfigHandler.GARNET_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.GARNET_EFFECT));
+				}
+				break;
+			case "jade":
+				if (GetPotionFromString(ConfigHandler.JADE_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.JADE_EFFECT));
+				}
+				break;
+			case "lapis":
+				if (GetPotionFromString(ConfigHandler.LAPIS_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.LAPIS_EFFECT));
+				}
+				break;
+			case "moonstone":
+				if (GetPotionFromString(ConfigHandler.MOONSTONE_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.MOONSTONE_EFFECT));
+				}
+				break;
+			case "obsidian":
+				if (GetPotionFromString(ConfigHandler.OBSIDIAN_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.OBSIDIAN_EFFECT));
+				}
+				break;
+			case "onyx":
+				if (GetPotionFromString(ConfigHandler.ONYX_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.ONYX_EFFECT));
+				}
+				break;
+			case "opal":
+				if (GetPotionFromString(ConfigHandler.OPAL_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.OPAL_EFFECT));
+				}
+				break;
+			case "orangeTopaz":
+				if (GetPotionFromString(ConfigHandler.ORANGE_TOPAZ_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.ORANGE_TOPAZ_EFFECT));
+				}
+				break;
+			case "painite":
+				if (GetPotionFromString(ConfigHandler.PAINITE_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.PAINITE_EFFECT));
+				}
+				break;
+			case "peridot":
+				if (GetPotionFromString(ConfigHandler.PERIDOT_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.PERIDOT_EFFECT));
+				}
+				break;
+			case "ruby":
+				if (GetPotionFromString(ConfigHandler.RUBY_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.RUBY_EFFECT));
+				}
+				break;
+			case "sapphire":
+				if (GetPotionFromString(ConfigHandler.SAPPHIRE_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.SAPPHIRE_EFFECT));
+				}
+				break;
+			case "taaffeite":
+				if (GetPotionFromString(ConfigHandler.TAAFFEITE_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.TAAFFEITE_EFFECT));
+				}
+				break;
+			case "tanzanite":
+				if (GetPotionFromString(ConfigHandler.TANZANITE_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.TANZANITE_EFFECT));
+				}
+				break;
+			case "turquoise":
+				if (GetPotionFromString(ConfigHandler.TURQUOISE_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.TURQUOISE_EFFECT));
+				}
+				break;
+			case "yellowTopaz":
+				if (GetPotionFromString(ConfigHandler.YELLOW_TOPAZ_EFFECT, 0) != null) {
+					player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.YELLOW_TOPAZ_EFFECT));
+				}
+				break;
+	}
+	switch (materialName) {
+		case "steel":
+			if (GetPotionFromString(ConfigHandler.STEEL_EFFECT, 0) != null) {
+				player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.STEEL_EFFECT));
+			}
+			break;
+		case "silver":
+			if (GetPotionFromString(ConfigHandler.SILVER_EFFECT, 0) != null) {
+				player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.SILVER_EFFECT));
+			}
+			break;
+		case "gold":
+			if (GetPotionFromString(ConfigHandler.GOLD_EFFECT, 0) != null) {
+				player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.GOLD_EFFECT));
+			}
+			break;
+		case "quicksilver":
+			if (GetPotionFromString(ConfigHandler.QUICKSILVER_EFFECT, 0) != null) {
+				player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.QUICKSILVER_EFFECT));
+			}
+			break;
+		case "mithril":
+			if (GetPotionFromString(ConfigHandler.MITHRIL_EFFECT, 0) != null) {
+				player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.MITHRIL_EFFECT));
+			}
+			break;
+		case "cobalt":
+			if (GetPotionFromString(ConfigHandler.COBALT_EFFECT, 0) != null) {
+				player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.COBALT_EFFECT));
+			}
+			break;
+		case "admantium":
+			if (GetPotionFromString(ConfigHandler.ADMANTIUM_EFFECT, 0) != null) {
+				player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.ADMANTIUM_EFFECT));
+			}
+			break;
+		case "ebony":
+			if (GetPotionFromString(ConfigHandler.EBONY_EFFECT, 0) != null) {
+				player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.EBONY_EFFECT));
+			}
+			break;
+		case "divinium":
+			if (GetPotionFromString(ConfigHandler.DIVINIUM_EFFECT, 0) != null) {
+				player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.DIVINIUM_EFFECT));
+			}
+			break;
+		case "malovenium":
+			if (GetPotionFromString(ConfigHandler.MALOVENIUM_EFFECT, 0) != null) {
+				player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.MALOVENIUM_EFFECT));
+			}
+			break;
+		case "chancium":
+			if (GetPotionFromString(ConfigHandler.CHANCIUM_EFFECT, 0) != null) {
+				player.removePotionEffect(GetRemovablePotionFromString(ConfigHandler.CHANCIUM_EFFECT));
+			}
+			break;
 		}
 	}
 	@Override
