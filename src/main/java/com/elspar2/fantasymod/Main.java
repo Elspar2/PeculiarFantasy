@@ -1,10 +1,13 @@
 package com.elspar2.fantasymod;
 
+import java.io.File;
+
 import com.elspar2.fantasymod.init.ModItems;
 import com.elspar2.fantasymod.init.ModRecipes;
 import com.elspar2.fantasymod.proxy.CommonProxy;
 import com.elspar2.fantasymod.tabs.FantasyTab;
 import com.elspar2.fantasymod.util.Reference;
+import com.elspar2.fantasymod.util.handlers.ConfigHandler;
 import com.elspar2.fantasymod.util.handlers.OreDictionaryHandler;
 import com.elspar2.fantasymod.world.ModWorldGen;
 
@@ -22,6 +25,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 @Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION)
 public class Main {
 
+	public static File config;
+	
 	public static final FantasyTab FantasyTab = new FantasyTab("FantasyTab");
 	
 	@Instance
@@ -34,6 +39,7 @@ public class Main {
 	public static void preInit(FMLPreInitializationEvent event)
 	{
 		GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
+		ConfigHandler.RegisterConfig(event);
 	}
 	
 	@EventHandler
@@ -48,5 +54,5 @@ public class Main {
 	{
 	
 	}	
-
+	
 }
